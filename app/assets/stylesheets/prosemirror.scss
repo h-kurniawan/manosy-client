@@ -327,6 +327,10 @@ li.ProseMirror-selectednode:after {
 .ProseMirror {
   font-family: "Times New Roman";
 
+  .editor--jp & {
+    font-family: inherit;
+  }
+
   h2 {
     font-size: inherit;
     font-weight: bold;
