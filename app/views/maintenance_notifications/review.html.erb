@@ -4,12 +4,10 @@
 </h1>
 
 <h2>Review Messages</h2>
-<p class="help-block">Creating Zendesk ticket will notify <b><%= @to.size %> clients</b> and <%= @cc.size %> Medidata project managers.</p>
+
 
 <div class="card">
   <div class="card-header">
-    <div><b>To: </b> <%= @to.join(", ") %></div>
-    <div><b>cc: </b> <%= @cc.join(", ")%></div>
     <div><b>Subject </b>: Scheduled Maintenance Notifcation</div>
   </div>
 
@@ -35,6 +33,7 @@
 </div>
 
 <div class="my-3 text-center">
+  <p class="help-block">This will create <b><%= @response[:product_urls].size %> tickets</b> to notify <b><%= @to.size %> clients</b>.</p>
   <%= link_to "Save Draft", "#", class: "btn btn-primary-invert mr-2" %>
-  <%= link_to "Create Zendesk Ticket", "#", class: "btn btn-primary" %>
+  <%= link_to "Create Zendesk Ticket(s)", "#", class: "btn btn-primary" %>
 </div>
