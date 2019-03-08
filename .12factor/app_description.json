@@ -18,6 +18,21 @@
   "config_schema": {
     "additionalProperties": false,
     "type": "object",
-    "properties": {}
+    "properties": {
+      "STAGE": {
+        "type": "string",
+        "description": "The API Gateway stage",
+        "enum": [
+          "sandbox",
+          "distro",
+          "validation",
+          "innovate",
+          "production"
+        ]
+      }
+    },
+    "required": [
+      "STAGE"
+    ]
   }
 }
