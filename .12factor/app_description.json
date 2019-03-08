@@ -1,0 +1,23 @@
+{
+  "deploy_env": {
+    "cmd_release": [
+      "bundle exec rails assets:precompile"
+    ],
+    "processes": {
+      "web": "bundle exec rails server"
+    },
+    "listening_ports": {
+      "web": [3000]
+    },
+    "max_ram": {
+      "web": 1024,
+      "worker": 1024
+    },
+    "deploy_tasks": ["web"]
+  },
+  "config_schema": {
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {}
+  }
+}
