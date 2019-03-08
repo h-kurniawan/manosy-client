@@ -1,1 +1,44 @@
 @import "bootstrap";
+@import "maintenance_notifications";
+
+.container {
+  max-width: 740px;
+}
+
+dd {
+  margin-bottom: 1rem;
+}
+
+.btn-primary-invert {
+  color: theme-color("primary");
+  border: 1px solid theme-color("primary");
+  background: transparent;
+
+  &:hover {
+    color: darken(theme-color("primary"), 7.5%) !important;
+    border-color: darken(theme-color("primary"), 10%) !important;
+  }
+
+  &:active {
+    color: #2275d7;
+    border-color: #216fcc;
+  }
+}
+
+.btn-secondary-invert {
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  background: transparent;
+
+  &:hover {
+    color: #545b62;
+  }
+
+  &:active {
+    border-color: #4e555b;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+  }
+}
