@@ -16,17 +16,19 @@
     English
   </div>
 
-  <div class="card-body email-body">
+  <div class="card-body email-body" data-editable>
     <%= raw @draft_message_html %>
   </div>
+  <div class="editor"></div>
 
   <div class="card-footer text-muted">
     Japanese
   </div>
 
-  <div class="card-body email-body">
+  <div class="card-body email-body" data-editable>
     <%= raw @jp_draft_message_html %>
   </div>
+  <div class="editor"></div>
 </div>
 
 <div class="my-3 text-center">
