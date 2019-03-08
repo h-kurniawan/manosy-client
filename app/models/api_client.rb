@@ -1,8 +1,12 @@
 class APIClient
   BASE_URL = "https://jsonplaceholder.typicode.com".freeze
 
+  def fetch_issue(id)
+    client.get("posts/#{id}").body
+  end
+
   def smoke_test
-    @result = client.get("todos/1").body
+    client.get("todos/1").body
   end
 
   private

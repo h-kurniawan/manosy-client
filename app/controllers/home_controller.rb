@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @result = APIClient.new.smoke_test
+    @result = client.fetch_issue(params[:id] || 1)
+  end
+
+  def client
+    @_client ||= APIClient.new
   end
 end
