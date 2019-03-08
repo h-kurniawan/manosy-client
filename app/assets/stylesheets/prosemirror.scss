@@ -339,4 +339,8 @@ li.ProseMirror-selectednode:after {
   li p {
     margin: 0 !important;
   }
+
+  code {
+    color: inherit;
+  }
 }
