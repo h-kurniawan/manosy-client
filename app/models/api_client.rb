@@ -1,12 +1,8 @@
 class APIClient
-  BASE_URL = "https://jsonplaceholder.typicode.com".freeze
+  BASE_URL = "https://mns-api.imedidata.net/api/v1".freeze
 
-  def fetch_issue(id)
-    client.get("posts/#{id}").body
-  end
-
-  def smoke_test
-    client.get("todos/1").body
+  def fetch_downtime(id)
+    client.get("downtimes/#{id}").body.with_indifferent_access
   end
 
   private
