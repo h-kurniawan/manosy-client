@@ -6,6 +6,14 @@ class MaintenanceNotificationsController < ApplicationController
   def review
     @response = client.fetch_downtime(params[:id])
 
+    @to = @response[:product_urls].map do |product|
+      product[:client_emails]
+    end.flatten.uniq
+
+    @cc = @response[:product_urls].map do |product|
+      product[:project_manager_emails]
+    end.flatten.uniq
+
     jp_draft = <<~HEREDOC
       **メンテナンス予定のお知らせ：**
       **2018年3月10日（日本時間）におけるRave URLメンテナンスのお知らせ**

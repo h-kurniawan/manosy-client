@@ -1,6 +1,6 @@
 <h1 class="text-center">
-  Rave URL Maintenance Notification
-  <div class="small">24-Feb-2018<div>
+  <%= @response[:product_name]%> Maintenance Notification
+  <div class="small"><%= DateTime.parse(@response[:start]).strftime("%d-%b-%Y") %> <div>
 </h1>
 
 <div class="card">
@@ -38,9 +38,17 @@
       <dt>Affected URLs</dt>
       <dd>
         <ul>
-          <li>nagoya-camcr.mdsol.com</li>
-          <li>nagoya-camcr.mdsol.com</li>
-          <li>nagoya-camcr.mdsol.com</li>
+          <% if params[:id] == "1" %>
+            <li>https://sanofi.mdsol.com</li>
+            <li>https://amgen.mdsol.co.jp</li>
+            <li>https://amgen.mdsol.co.kr</li>
+            <li>https://amgen.mdsol.co.ch</li>
+          <% else %>
+            <li>https://beigene.mdsol.com</li>
+            <li>https://pfizer.mdsol.com</li>
+            <li>https://pfizer-new.mdsol.com</li>
+            <li>https://roche.mdsol.com</li>
+          <% end %>
         </ul>
       </dd>
 
@@ -48,6 +56,5 @@
   </div>
 </div>
 
-<h3 class="mt-5">Notify clients</h3>
-<p>Client A, B, and C should be notified.</p>
+<h3 class="mt-3">Notify clients</h3>
 <%= link_to "Review Messages", review_maintenance_notification_path(params[:id]), class: "btn btn-primary" %>

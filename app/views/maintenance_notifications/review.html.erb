@@ -1,20 +1,20 @@
 <h1 class="text-center">
-  Rave URL Maintenance Notification
-  <div class="small">24-Feb-2018<div>
+  <%= @response[:product_name]%> Maintenance Notification
+  <div class="small"><%= DateTime.parse(@response[:start]).strftime("%d-%b-%Y") %> <div>
 </h1>
 
 <h2>Review Messages</h2>
-<p class="help-block">Creating Zendesk ticket will notify <b>5 clients</b> and 2 Medidata projet managers.</p>
+<p class="help-block">Creating Zendesk ticket will notify <b><%= @to.size %> clients</b> and <%= @cc.size %> Medidata project managers.</p>
 
 <div class="card">
   <div class="card-header">
-    <div><b>To: </b> client_A@example.com, client_B@example.com</div>
-    <div><b>cc: </b> PM_A@example.com</div>
+    <div><b>To: </b> <%= @to.join(", ") %></div>
+    <div><b>cc: </b> <%= @cc.join(", ")%></div>
     <div><b>Subject </b>: Scheduled Maintenance Notifcation</div>
   </div>
 
   <div class="card-footer text-uppercase">
-    English
+    Email Template (English)
   </div>
 
   <div class="card-body email-body" data-editable>
@@ -22,14 +22,16 @@
   </div>
   <div class="editor"></div>
 
-  <div class="card-footer text-uppercase">
-    Japanese
-  </div>
+  <% if params[:id].to_i == 1 %>
+    <div class="card-footer text-uppercase">
+      Email Template (Japanese)
+    </div>
 
-  <div class="card-body email-body" data-editable>
-    <%= raw @jp_draft_message_html %>
-  </div>
-  <div class="editor"></div>
+    <div class="card-body email-body" data-editable>
+      <%= raw @jp_draft_message_html %>
+    </div>
+    <div class="editor"></div>
+  <% end %>
 </div>
 
 <div class="my-3 text-center">
